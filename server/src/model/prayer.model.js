@@ -18,7 +18,7 @@ const prayerSchema = new Schema({
         type: Boolean,
         default: false
     }
-});
+}, { timestamps: true });
 
 const Prayer = mongoose.model('prayer', prayerSchema);
 

@@ -1,0 +1,4 @@
+export const CREATE_PRAYER = 'CREATE_PRAYER';
+export const GET_PRAYER = 'GET_PRAYER';
+export const UPDATE_PRAYER = 'UPDATE_PRAYER';
+export const DELETE_PRAYER = 'DELETE_PRAYER';

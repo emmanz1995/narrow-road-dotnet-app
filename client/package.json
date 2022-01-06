@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.2.1",
     "axios": "^0.24.0",
     "framer-motion": "^5.5.5",
+    "moment": "^2.29.1",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-alert": "^7.0.3",

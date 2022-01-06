@@ -1,0 +1,61 @@
+@import '../../App';
+
+.prayer-container {
+  max-width: 1300px;
+  margin: 20px auto;
+}
+
+.panel {
+  border: 1px solid $AshColor;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.prayer-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  td, th {
+    border: 1px solid $AshColor;
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {
+    background-color: $AshColor;
+  }
+}
+
+.create-prayer-container {
+  max-width: 1300px;
+  margin: 20px auto;
+  border: 1px solid $AshColor;
+  padding: 20px;
+  form {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  border-bottom: 1px solid $AshColor;
+  background-color: transparent;
+  &:focus {
+    outline: none;
+  }
+}
+
+.fa-trash, .fa-edit {
+  cursor: pointer;
+}
+
+.btn-submit {
+  background-color: $SecondaryTheme;
+  border: 1px solid $AshColor;
+  border-radius: 4px;
+  padding: 10px 15px;
+  color: $AshColor;
+}

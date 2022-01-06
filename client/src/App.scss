@@ -1,3 +1,21 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Playfair+Display&family=Roboto&family=Roboto+Mono:wght@100;300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+$MainTheme: #D3F2E9;
+$SecondaryTheme: #0A7B79;
+$AshColor: #DDDDDD;
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Luxurious Roman', cursive;
+  background-color: $MainTheme;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  padding: 0;
+  margin: 0;
 }

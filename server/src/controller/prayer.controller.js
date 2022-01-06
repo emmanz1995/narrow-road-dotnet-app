@@ -2,11 +2,10 @@ const Prayer = require('../model/prayer.model');
 const expressAsyncHandler = require('express-async-handler');
 
 const createPrayer = expressAsyncHandler(async (req, res) => {
-    const { title, description, answered } = req?.body;
+    const { title, description } = req?.body;
     try {
         const newPrayer = await Prayer.create({
-            title, description,
-            answered
+            title, description
         })
         res?.json(newPrayer);
     } catch(error) {
@@ -16,8 +15,9 @@ const createPrayer = expressAsyncHandler(async (req, res) => {
 
 const getPrayer = expressAsyncHandler(async (req, res) => {
     try {
-        const findPrayer = await Prayer.find()
-        res?.json(findPrayer);
+        const prayer = await Prayer.find()
+        res?.json(prayer);
+        console.log(prayer)
     } catch(error) {
         res?.json(error);
     }
