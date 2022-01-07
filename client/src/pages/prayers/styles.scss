@@ -1,14 +1,22 @@
 @import '../../App';
 
 .prayer-container {
-  max-width: 1300px;
+  max-width: 1100px;
   margin: 20px auto;
 }
 
-.panel {
+.prayer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.card {
   border: 1px solid $AshColor;
   border-radius: 5px;
   padding: 10px;
+  width: 230px;
 }
 
 .prayer-table {
@@ -21,12 +29,13 @@
     padding: 8px;
   }
   tr:nth-child(even) {
-    background-color: $AshColor;
+    background-color: $SecondaryTheme;
+    color: $AshColor;
   }
 }
 
 .create-prayer-container {
-  max-width: 1300px;
+  max-width: 1100px;
   margin: 20px auto;
   border: 1px solid $AshColor;
   padding: 20px;
@@ -58,4 +67,9 @@
   border-radius: 4px;
   padding: 10px 15px;
   color: $AshColor;
+  cursor: pointer;
+  &:hover {
+    color: $MainTheme;
+    transition: all 0.2s ease-in-out;
+  }
 }

@@ -4,8 +4,8 @@ import './styles.scss';
 const Navbar = () => {
     const navItems = [
         {
-            name: 'Add Prayer',
-            link: '/create-prayer'
+            name: 'Home',
+            link: '/'
         },
         {
             name: 'Testimonies',

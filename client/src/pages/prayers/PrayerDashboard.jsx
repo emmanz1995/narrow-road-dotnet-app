@@ -3,9 +3,11 @@ import './styles.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPrayers, deletePrayer } from '../../app/action/prayers';
 import moment from 'moment';
+import { useNavigate } from 'react-router-dom';
 
 function PrayerDashboard() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const prayer = useSelector(state => state.prayers)
     useEffect(() => {
@@ -30,6 +32,10 @@ function PrayerDashboard() {
     return (
         <div className="prayer-container">
            <hr />
+           <div className="prayer-header">
+               <h4>Your Prayers</h4>
+               <button className="btn-submit" onClick={() => navigate('/create-prayer')}>Create Prayer</button>
+           </div>
                <div>
                    {!loading ?
                        <table className="prayer-table">
@@ -50,7 +56,7 @@ function PrayerDashboard() {
                                    <td>{moment(prayer?.createdAt).format('DD-MM-YY, hh:mm:ss')}</td>
                                    <td>
                                        {loading ? 'Loading...' : <i className="fas fa-trash" onClick={() => handleDeletePrayer(prayer?._id)} />}{' '}
-                                       <i className="far fa-edit" />
+                                       <i className="far fa-edit" onClick={()=> navigate(`/update-prayer/${prayer?._id}`)} />
                                    </td>
                                </tr>
                            )) : <p>Cannot find Prayers</p>
