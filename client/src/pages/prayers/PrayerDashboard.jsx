@@ -31,7 +31,6 @@ function PrayerDashboard() {
 
     return (
         <div className="prayer-container">
-           <hr />
            <div className="prayer-header">
                <h4>Your Prayers</h4>
                <button className="btn-submit" onClick={() => navigate('/create-prayer')}>Create Prayer</button>

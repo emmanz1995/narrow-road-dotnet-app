@@ -1,4 +1,9 @@
-import { CREATE_PRAYER, GET_PRAYER, UPDATE_PRAYER, DELETE_PRAYER } from '../action';
+import {
+    CREATE_PRAYER,
+    GET_PRAYER,
+    UPDATE_PRAYER,
+    DELETE_PRAYER
+} from '../action';
 
 const initialState = [];
 

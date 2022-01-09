@@ -1,4 +1,4 @@
-import { CREATE_PRAYER, GET_PRAYER, DELETE_PRAYER } from './index';
+import { CREATE_PRAYER, GET_PRAYER, UPDATE_PRAYER, DELETE_PRAYER } from './index';
 import axios from 'axios';
 import { API } from '../API';
 
@@ -30,6 +30,22 @@ export const getPrayers = () => async (dispatch) => {
     }
 }
 
+export const updatePrayer = (formData, id) => async (dispatch) => {
+    try {
+        const response = await axios.put(`${process.env.REACT_APP_URL_PATH}/api/prayer/update/${id}`, formData, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        dispatch({
+            type: UPDATE_PRAYER,
+            payload: response.data
+        })
+    } catch(error) {
+        console.log(error);
+    }
+}
+
 export const deletePrayer = (id) => async (dispatch) => {
     try {
         const response = await axios.delete(`${process.env.REACT_APP_URL_PATH}/api/prayer/delete/${id}`)
@@ -37,7 +53,6 @@ export const deletePrayer = (id) => async (dispatch) => {
             type: DELETE_PRAYER,
             payload: response?.data
         })
-        console.log(response?.data)
     } catch(error) {
         console.log(error.message);
     }
