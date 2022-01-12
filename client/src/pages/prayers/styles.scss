@@ -12,11 +12,23 @@
   margin: 10px 0;
 }
 
+.prayer-flex-card {
+  display: flex;
+  align-items: center;
+  grid-gap: 20px;
+}
+
 .card {
   border: 1px solid $AshColor;
   border-radius: 5px;
   padding: 10px;
-  width: 230px;
+  width: 330px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .prayer-table {

@@ -9,7 +9,7 @@ function PrayerDashboard() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
-    const prayer = useSelector(state => state.prayers)
+    const prayer = useSelector(state => state.prayers);
     useEffect(() => {
         setLoading(true);
         dispatch(getPrayers()).then(() => {
@@ -37,30 +37,49 @@ function PrayerDashboard() {
            </div>
                <div>
                    {!loading ?
-                       <table className="prayer-table">
-                           <tr>
-                               <th>Title</th>
-                               <th>Description</th>
-                               <th>Type</th>
-                               <th>Answered</th>
-                               <th>Date Created</th>
-                               <th>Actions:</th>
-                           </tr>
-                           {prayer?.length > 0 ? prayer.map(prayer => (
-                               <tr>
-                                   <td>{prayer?.title}</td>
-                                   <td>{prayer?.description}</td>
-                                   <td>{prayer?.type}</td>
-                                   <td>{prayer?.answered ? 'Answered!' : 'Ongoing'}</td>
-                                   <td>{moment(prayer?.createdAt).format('DD-MM-YY, hh:mm:ss')}</td>
-                                   <td>
-                                       {loading ? 'Loading...' : <i className="fas fa-trash" onClick={() => handleDeletePrayer(prayer?._id)} />}{' '}
-                                       <i className="far fa-edit" onClick={()=> navigate(`/update-prayer/${prayer?._id}`)} />
-                                   </td>
-                               </tr>
-                           )) : <p>Cannot find Prayers</p>
-                           }
-                       </table> : <p>Prayer is loading...</p>
+                       <div className="prayer-flex-card">
+                           {prayer?.length > 0 ? prayer?.map(prayer => (
+                               <div className="card" key={prayer?._id}>
+                                   <div className="card-header">
+                                       <h4>{prayer?.title}</h4>
+                                       <span>
+                                           {loading ? 'Loading...' : <i className="fas fa-trash" onClick={() => handleDeletePrayer(prayer?._id)} />}{' '}
+                                           <i className="far fa-edit" onClick={()=> navigate(`/update-prayer/${prayer?._id}`)} />
+                                       </span>
+                                   </div>
+                                   <div className="card-body">
+                                       <p>{prayer?.description}</p>
+                                       <span>
+                                           <em style={{ color: 'grey' }}>Prayed at:</em><p>{moment(prayer?.createdAt).format('DD-MM-YY, hh:mm')}</p>
+                                       </span>
+                                   </div>
+                               </div>
+                           )) : <p>Prayer requests not found!</p>}
+                       </div> : <p>Prayer is loading...</p>
+                       // <table className="prayer-table">
+                       //     <tr>
+                       //         <th>Title</th>
+                       //         <th>Description</th>
+                       //         <th>Type</th>
+                       //         <th>Answered</th>
+                       //         <th>Date Created</th>
+                       //         <th>Actions:</th>
+                       //     </tr>
+                       //     {prayer?.length > 0 ? prayer.map(prayer => (
+                       //         <tr>
+                       //             <td>{prayer?.title}</td>
+                       //             <td>{prayer?.description}</td>
+                       //             <td>{prayer?.type}</td>
+                       //             <td>{prayer?.answered ? 'Answered!' : 'Ongoing'}</td>
+                       //             <td>{moment(prayer?.createdAt).format('DD-MM-YY, hh:mm:ss')}</td>
+                       //             <td>
+                       //                 {loading ? 'Loading...' : <i className="fas fa-trash" onClick={() => handleDeletePrayer(prayer?._id)} />}{' '}
+                       //                 <i className="far fa-edit" onClick={()=> navigate(`/update-prayer/${prayer?._id}`)} />
+                       //             </td>
+                       //         </tr>
+                       //     )) : <p>Cannot find Prayers</p>
+                       //     }
+                       // </table> : <p>Prayer is loading...</p>
                    }
                </div>
         </div>
