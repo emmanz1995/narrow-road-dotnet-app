@@ -1,4 +1,4 @@
-import { CREATE_PRAYER, GET_PRAYER, UPDATE_PRAYER, DELETE_PRAYER } from './index';
+import {CREATE_PRAYER, GET_PRAYER, UPDATE_PRAYER, DELETE_PRAYER, CREATE_PRAYER_ERROR} from './index';
 import axios from 'axios';
 import { API } from '../API';
 
@@ -14,7 +14,11 @@ export const onCreatePrayer = (formData) => async (dispatch) => {
             payload: response.data
         })
     } catch(error) {
-        console.log(error);
+        dispatch({
+            type: CREATE_PRAYER_ERROR,
+            payload: error
+        })
+        console.log(error?.message);
     }
 }
 
