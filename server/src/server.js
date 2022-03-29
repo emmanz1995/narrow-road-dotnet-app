@@ -4,7 +4,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const db = require('./config/db');
 const { errorHandler, /* notFound */ } = require('./middleware/errorHandler');
-const prayerRoute = require('./routes/prayer.routes')
+const prayerRoute = require('./routes/prayer.routes');
+const dotenv = require('dotenv');
+dotenv.config()
 
 const PORT = 5001;
 db();

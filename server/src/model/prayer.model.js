@@ -20,6 +20,14 @@ const prayerSchema = new Schema({
     }
 }, { timestamps: true });
 
+prayerSchema.set('toJSON', {
+    transform: (doc, object) => {
+        object.id = object._id.toString();
+        delete object._id
+        delete object.__v
+    }
+})
+
 const Prayer = mongoose.model('prayer', prayerSchema);
 
 module.exports = Prayer;

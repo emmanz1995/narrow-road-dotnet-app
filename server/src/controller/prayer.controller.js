@@ -17,7 +17,6 @@ const getPrayer = expressAsyncHandler(async (req, res) => {
     try {
         const prayer = await Prayer.find()
         res?.json(prayer);
-        console.log(prayer)
     } catch(error) {
         res?.json(error);
     }
