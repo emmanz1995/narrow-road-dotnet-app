@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const db = require('./config/db');
-const { errorHandler, /* notFound */ } = require('./middleware/errorHandler');
+const { errorHandler, notFound } = require('./middleware/errorHandler');
 const prayerRoute = require('./routes/prayer.routes');
 const dotenv = require('dotenv');
 dotenv.config()
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.json());
 app.use(prayerRoute)
 
-// app.use(notFound)
+app.use(notFound)
 app.use(errorHandler);
 
 app.listen(PORT,() => {
