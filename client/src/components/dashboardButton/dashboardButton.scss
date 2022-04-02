@@ -1,0 +1,15 @@
+@use '../../sass/partials/variables' as *;
+
+.dashboard-button {
+  width: 250px;
+  color: $Black;
+  border: 2px solid $PrimaryColor;
+  border-radius: 5px;
+  padding: 20px;
+  cursor: pointer;
+  &:hover {
+    background-color: $PrimaryColor;
+    color: $White;
+    transition: all 0.2s ease-in-out;
+  }
+}
